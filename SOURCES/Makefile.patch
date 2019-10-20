@@ -1,0 +1,28 @@
+--- Makefile.orig	2019-07-09 12:50:53.000000000 -0400
++++ Makefile	2019-10-20 11:46:23.250529672 -0400
+@@ -6,7 +6,7 @@
+ 
+ all: molly-guard.8 shutdown
+ 
+-%.8: DB2MAN=/usr/share/sgml/docbook/stylesheet/xsl/nwalsh/manpages/docbook.xsl
++%.8: DB2MAN=/usr/share/sgml/docbook/xsl-stylesheets/manpages/docbook.xsl
+ %.8: XP=xsltproc -''-nonet
+ %.8: %.xml
+ 	$(XP) $(DB2MAN) $<
+@@ -27,16 +27,6 @@
+ 	mkdir -m755 --parent $(DESTDIR)$(libdir)/molly-guard
+ 	install -m755 -oroot -oroot shutdown $(DESTDIR)$(libdir)/molly-guard/molly-guard
+ 	
+-	mkdir -m755 --parent $(DESTDIR)$(sbindir)
+-	ln -s $(libdir)/molly-guard/molly-guard $(DESTDIR)$(sbindir)/poweroff
+-	ln -s $(libdir)/molly-guard/molly-guard $(DESTDIR)$(sbindir)/halt
+-	ln -s $(libdir)/molly-guard/molly-guard $(DESTDIR)$(sbindir)/reboot
+-	ln -s $(libdir)/molly-guard/molly-guard $(DESTDIR)$(sbindir)/shutdown
+-	ln -s $(libdir)/molly-guard/molly-guard $(DESTDIR)$(sbindir)/coldreboot
+-	ln -s $(libdir)/molly-guard/molly-guard $(DESTDIR)$(sbindir)/pm-hibernate
+-	ln -s $(libdir)/molly-guard/molly-guard $(DESTDIR)$(sbindir)/pm-suspend
+-	ln -s $(libdir)/molly-guard/molly-guard $(DESTDIR)$(sbindir)/pm-suspend-hybrid
+-	
+ 	mkdir -m755 --parent $(DESTDIR)$(cfgdir)
+ 	install -m644 -oroot -oroot rc $(DESTDIR)$(cfgdir)
+ 	cp -r run.d $(DESTDIR)$(cfgdir) \

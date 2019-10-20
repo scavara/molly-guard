@@ -1,0 +1,11 @@
+--- rc.orig	2019-07-09 18:50:53.000000000 +0200
++++ rc	2019-10-20 19:19:07.450111961 +0200
+@@ -3,7 +3,7 @@
+ # ALWAYS_QUERY_HOSTNAME
+ # when set, causes the 30-query-hostname script to always ask for the
+ # hostname, even if no SSH session was detected.
+-#ALWAYS_QUERY_HOSTNAME=true
++ALWAYS_QUERY_HOSTNAME=true
+ 
+ # USE_FQDN
+ # when set, causes the 30-query-hostname script to ask for the fully-qualified
